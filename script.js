@@ -1,5 +1,25 @@
 "use strict";
 
+
+// Features: 
+// (5 points): As a developer, I want to make good, consistent commits.
+// (5 points): As a user, I want a destination to be randomly selected for my day trip.
+// (5 points): As a user, I want a restaurant to be randomly selected for my day trip.
+// (5 points): As a user, I want a mode of transportation to be randomly selected for 
+// my day trip.
+// (5 points): As a user, I want a form of entertainment to be randomly selected for my
+// day trip.
+// (15 points): As a user, I want to be able to randomly re-select a destination, 
+// restaurant, mode of transportation, and/or form of entertainment if I don’t like one 
+// or more of those things.
+// (10 points): As a user, I want to be able to confirm that my day trip is “complete” 
+// once I like all of the random selections.
+// (10 points): As a user, I want to display my completed trip in the console/alert.
+// (5 points): As a developer, I want all of my functions to have a Single Responsibility.
+// Remember, each function should do just one thing!
+
+
+
 //Creating 4 arrays (destination, transportation, restaurants, entertainment).
 
 let yourDestinationArray = ["Boston", "New York", "San Diego", "Los Angeles", "Dalas", "Miami", "Las Vegas", "Denver", "Nashville", "Atlanta"];
@@ -22,28 +42,40 @@ let Restaurant = chooseRandmomArray(yourRestaurantArray);
 let Entertainment = chooseRandmomArray(yourEntertainmentArray);
 
 
-//Checking if my function works
-
-// console.log(Destination);
-// console.log(Transportation);
-// console.log(Restaurant);
-// console.log(Entertainment);
-
-// alert([Destination, Transportation, Restaurant, Entertainment]);
-
-
 //Declaring a new variable that holds "random functions" in one array. Created "for loop" so my new array prints to console one by one.
 
 let yourTripArray = [Destination, Transportation, Restaurant, Entertainment];
-for(let i = 0; i < yourTripArray.length; i++) {
-    alert(yourTripArray[i]);
+alert("Here is your trip:\n" + yourTripArray.join('\n'));
+
+displayYourChoice();
+
+function displayYourChoice() {
+    let userInput = prompt("Are you satisfied with your trip? YES or NO?");
+    userInput = userInput.toUpperCase();
+
+    if(userInput === "YES") {
+        alert("Here is your final trip:\n" + yourTripArray.join('\n'));
+        alert("Have fun on your trip!");
+    } else {
+        let differentOption = prompt("Which option would you like to change? Enter a number 1 - 4");
+        changeYourChoice(differentOption);   
+    }
 }
 
-let userInput = prompt("Are you satisfied with your trip? YES or NO?");
+function changeYourChoice(differentOption) {
+    if(differentOption == 1) {
+        yourTripArray[0] = chooseRandmomArray(yourDestinationArray);
+    } else if(differentOption == 2) {
+        yourTripArray[1] = chooseRandmomArray(yourTransportationArray);
+    } else if(differentOption == 3) {
+        yourTripArray[2] = chooseRandmomArray(yourRestaurantArray);
+    } else if(differentOption == 4) {
+        yourTripArray[3] = chooseRandmomArray(yourEntertainmentArray); 
+    }  
+    alert("Here is your trip:\n" + yourTripArray.join('\n'));
+    displayYourChoice();  
+}
 
-if(userInput === "YES") {
-    alert("Have fun on your trip!");
-} 
 
 
 
