@@ -41,7 +41,7 @@ let Transportation = chooseRandmomArray(yourTransportationArray);
 let Restaurant = chooseRandmomArray(yourRestaurantArray);
 let Entertainment = chooseRandmomArray(yourEntertainmentArray);
 
-let fourArrays = [yourDestinationArray, yourTransportationArray, yourRestaurantArray, yourEntertainmentArray];
+
 
 //Declaring a new variable that holds "random functions" in one array. Created "for loop" so my new array prints to console one by one.
 
@@ -65,20 +65,18 @@ function displayYourChoice() {
 
 
 function changeYourChoice(differentOption) {
-    // if(differentOption == 1) {
-    //     yourTripArray[0] = chooseRandmomArray(yourDestinationArray);
-    // } else if(differentOption == 2) {
-    //     yourTripArray[1] = chooseRandmomArray(yourTransportationArray);
-    // } else if(differentOption == 3) {
-    //     yourTripArray[2] = chooseRandmomArray(yourRestaurantArray);
-    // } else if(differentOption == 4) {
-    //     yourTripArray[3] = chooseRandmomArray(yourEntertainmentArray); 
-    // }  
+    if(differentOption == 1) {
+        yourTripArray[0] = chooseRandmomArray(yourDestinationArray);
+    } else if(differentOption == 2) {
+        yourTripArray[1] = chooseRandmomArray(yourTransportationArray);
+    } else if(differentOption == 3) {
+        yourTripArray[2] = chooseRandmomArray(yourRestaurantArray);
+    } else if(differentOption == 4) {
+        yourTripArray[3] = chooseRandmomArray(yourEntertainmentArray); 
+    }  
     
     
-    //Simplifying to avoid repetitive code
-    let differentNumber = Number(differentOption) -1;
-    yourTripArray[differentNumber] = chooseRandmomArray(fourArrays[differentNumber]);
+    
 
 
     alert("Here is your trip:\n" + yourTripArray.join('\n'));
